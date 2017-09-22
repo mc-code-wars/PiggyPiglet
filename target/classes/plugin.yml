@@ -5,3 +5,8 @@ prefix: BW
 authors: [PiggyPiglet]
 description: BottleWars minigame!
 website: https://www.piggypiglet.me
+commands:
+  bw:
+    description: Main command
+    usage: /bw <args>
+    permission: bottlewars.use

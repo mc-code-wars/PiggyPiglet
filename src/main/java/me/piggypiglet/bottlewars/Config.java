@@ -14,7 +14,8 @@ public class Config {
     private File file;
     private FileConfiguration fileConfig;
 
-    public Config(JavaPlugin main, String path, String fileName) {
+    public Config(String path, String fileName) {
+        BottleWars main = BottleWars.getInstance();
         file = new File(path, fileName);
         if (!file.exists()) {
             file.getParentFile().mkdirs();
@@ -29,7 +30,7 @@ public class Config {
         fileConfig = filesConfig;
     }
 
-    public FileConfiguration getConfig(){
+    public FileConfiguration getConfig() {
         return fileConfig;
     }
     public void save() {
