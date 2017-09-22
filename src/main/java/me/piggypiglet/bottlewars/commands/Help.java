@@ -1,9 +1,13 @@
 package me.piggypiglet.bottlewars.commands;
 
+import me.piggypiglet.bottlewars.BottleWars;
+import me.piggypiglet.bottlewars.Config;
 import me.piggypiglet.bottlewars.handlers.ChatHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 // ------------------------------
@@ -11,17 +15,14 @@ import java.util.stream.Stream;
 // https://www.piggypiglet.me
 // ------------------------------
 public class Help {
-    private ChatHandler chat;
+
     public Help(CommandSender sender, Command cmd, String label, String[] args) {
-        chat = new ChatHandler();
+        BottleWars main = BottleWars.getInstance();
+        ChatHandler chat = new ChatHandler();
+        final FileConfiguration lang = new Config(main.getDataFolder().getPath(), "lang.yml").getConfig();
         if (args.length == 0 || args[0].equalsIgnoreCase("help")) {
-            Stream.of(
-                    "&ahelp1",
-                    "&bhelp2",
-                    "&chelp3",
-                    "&dhelp4",
-                    "&ehelp5"
-            ).forEach(msg -> chat.send(sender, msg, false));
+            List<String> help = lang.getStringList("help");
+            chat.send(sender, String.valueOf(help) ,false, true);
         }
     }
 }
