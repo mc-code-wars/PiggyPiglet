@@ -1,0 +1,7 @@
+name: BottleWars
+version: 1.0.0-SNAPSHOT
+main: me.piggypiglet.bottlewars.BottleWars
+prefix: BW
+authors: [PiggyPiglet]
+description: BottleWars minigame!
+website: https://www.piggypiglet.me

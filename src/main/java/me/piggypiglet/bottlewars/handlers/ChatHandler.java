@@ -5,4 +5,5 @@ package me.piggypiglet.bottlewars.handlers;
 // https://www.piggypiglet.me
 // ------------------------------
 public class ChatHandler {
+
 }
