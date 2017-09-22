@@ -23,7 +23,7 @@ public class CommandHandler implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         final FileConfiguration lang = new Config(main.getDataFolder().getPath(), "lang.yml").getConfig();
         if (label.equalsIgnoreCase("bw")) {
-            new Help(sender, cmd, label, args);
+            new Help(sender, args);
         }
         return true;
     }
