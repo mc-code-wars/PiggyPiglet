@@ -1,4 +1,6 @@
-prefix: "&bTest "
+prefix: "&7[&bBW&7] "
 help:
-- "line1"
-- "line2"
+- "&b/bw &8- &7This menu"
+- "&b/bw help <command> &8- &7Information on a certain command"
+- "&b/bw reload &8- &7Reload the plugin"
+unknownsub: "&7Unknown subcommand, please type &b/bw&7 or &b/bw help&7 to receive a command list."

@@ -5,5 +5,6 @@ package me.piggypiglet.bottlewars.enums;
 // https://www.piggypiglet.me
 // ------------------------------
 public enum Messages {
-    PREFIX
+    PREFIX,
+    UNKNOWNSUB
 }
