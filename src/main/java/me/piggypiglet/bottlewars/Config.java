@@ -20,7 +20,6 @@ public class Config {
         if (!file.exists()) {
 
             file.getParentFile().mkdirs();
-            String pathNoBase = path.replaceFirst(main.getDataFolder().getPath(),"");
             main.saveResource(fileName, false);
         }
         FileConfiguration filesConfig = new YamlConfiguration();
