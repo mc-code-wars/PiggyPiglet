@@ -24,7 +24,7 @@ public final class BottleWars extends JavaPlugin {
 
         new Config(getDataFolder().getPath(), "config.yml");
         new Config(getDataFolder().getPath(), "lang.yml");
-        new Config(getDataFolder().getPath() + File.separator + "guis", "guis/test.yml");
+        new Config(getDataFolder().getPath(), "guis/test.yml");
 
         Stream.of(
                 "---- BottleWars ----",

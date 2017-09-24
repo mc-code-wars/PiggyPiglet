@@ -18,8 +18,10 @@ public class Config {
         BottleWars main = BottleWars.getInstance();
         file = new File(path, fileName);
         if (!file.exists()) {
+
             file.getParentFile().mkdirs();
-            main.saveResource(path + File.separator + fileName, false);
+            String pathNoBase = path.replaceFirst(main.getDataFolder().getPath(),"");
+            main.saveResource(fileName, false);
         }
         FileConfiguration filesConfig = new YamlConfiguration();
         try {
