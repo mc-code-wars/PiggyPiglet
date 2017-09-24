@@ -6,5 +6,7 @@ package me.piggypiglet.bottlewars.enums;
 // ------------------------------
 public enum Messages {
     PREFIX,
-    UNKNOWNSUB
+    UNKNOWNSUB,
+    NOTPLAYER,
+    UNKNOWNMAT
 }

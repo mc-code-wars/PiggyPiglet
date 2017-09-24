@@ -4,3 +4,5 @@ help:
 - "&b/bw help <command> &8- &7Information on a certain command"
 - "&b/bw reload &8- &7Reload the plugin"
 unknownsub: "&7Unknown subcommand, please type &b/bw&7 or &b/bw help&7 to receive a command list."
+notplayer: "&7This command can only be executed by players!"
+unknownmat: "&7The material you entered is incorrect, you have received the default one."

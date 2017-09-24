@@ -1,5 +1,7 @@
 package me.piggypiglet.bottlewars.handlers;
 
+import me.piggypiglet.bottlewars.commands.CreateLobby;
+import me.piggypiglet.bottlewars.commands.Debug;
 import me.piggypiglet.bottlewars.commands.Help;
 import me.piggypiglet.bottlewars.commands.Reload;
 import me.piggypiglet.bottlewars.enums.Commands;
@@ -35,6 +37,13 @@ public class CommandHandler implements CommandExecutor {
                         break;
                     case "reload":
                         new Reload(sender);
+                        break;
+                    case "createlobby":
+                        new CreateLobby(sender);
+                        break;
+                    case "debug":
+                        new Debug(sender);
+                        break;
                 }
             }
         }

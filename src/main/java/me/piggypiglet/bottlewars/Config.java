@@ -19,7 +19,7 @@ public class Config {
         file = new File(path, fileName);
         if (!file.exists()) {
             file.getParentFile().mkdirs();
-            main.saveResource(fileName, false);
+            main.saveResource(path + File.separator + fileName, false);
         }
         FileConfiguration filesConfig = new YamlConfiguration();
         try {

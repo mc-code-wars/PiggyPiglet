@@ -1,9 +1,9 @@
 package me.piggypiglet.bottlewars;
 
 import me.piggypiglet.bottlewars.handlers.CommandHandler;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
 import java.util.stream.Stream;
 
 // ------------------------------
@@ -12,30 +12,19 @@ import java.util.stream.Stream;
 // ------------------------------
 public final class BottleWars extends JavaPlugin {
     private static BottleWars instance;
-    private Config cfg() {
-        return new Config(getDataFolder().getPath(), "config.yml");
-    }
-    private void lang() {
-        new Config(getDataFolder().getPath(), "lang.yml");
-    }
 
     public static BottleWars getInstance() {
         return instance;
     }
-
     @Override
     public void onEnable() {
         instance = this;
 
         getCommand("bw").setExecutor(new CommandHandler());
 
-        cfg();
-        lang();
-
-        final FileConfiguration config = cfg().getConfig();
-        config.addDefault("test", 1);
-        config.options().copyDefaults(true);
-        cfg().save();
+        new Config(getDataFolder().getPath(), "config.yml");
+        new Config(getDataFolder().getPath(), "lang.yml");
+        new Config(getDataFolder().getPath() + File.separator + "guis", "guis/test.yml");
 
         Stream.of(
                 "---- BottleWars ----",
@@ -45,7 +34,6 @@ public final class BottleWars extends JavaPlugin {
                 "--------------------"
         ).forEach(getLogger()::info);
     }
-
     @Override
     public void onDisable() {
         instance = null;

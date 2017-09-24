@@ -1,12 +1,8 @@
-package me.piggypiglet.bottlewars.enums;
+package me.piggypiglet.bottlewars.handlers;
 
 // ------------------------------
 // Copyright (c) PiggyPiglet 2017
 // https://www.piggypiglet.me
 // ------------------------------
-public enum Commands {
-    HELP,
-    RELOAD,
-    CREATELOBBY,
-    DEBUG
+public class DataSaving {
 }
