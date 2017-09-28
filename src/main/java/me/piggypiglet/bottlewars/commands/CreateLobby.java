@@ -10,8 +10,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.Arrays;
-
 import static me.piggypiglet.bottlewars.enums.Messages.*;
 
 // ------------------------------
@@ -26,20 +24,8 @@ public class CreateLobby {
         if (sender.hasPermission("bottlewars.admin") || sender.hasPermission("bottlewars.createlobby")) {
             if (sender instanceof Player) {
                 Player p = (Player) sender;
-                String item;
 
-                if (Arrays.stream(Material.values()).anyMatch((mat) -> mat.name().equalsIgnoreCase(config.getString("select-item")))) {
-                    item = config.getString("select-item");
-                } else {
-                    item = "STICK";
-                    chat.sendError(sender, UNKNOWNMAT, true, false);
-                }
-                ItemStack wand = new ItemStack(Material.valueOf(item), 1);
-                ItemMeta mwand = wand.getItemMeta();
-                mwand.setDisplayName(chat.cc(config.getString("select-item-name", "&bLobby Maker")));
-                wand.setItemMeta(mwand);
-
-                p.getInventory().addItem(wand);
+                chat.send(sender, config.getString("lobbymsg", "&7You have received the lobby wand. Select an area by typing &b/bw createlobby pos1 &7and &b/bw createlobby pos2"), true, false);
             } else {
                 chat.sendError(sender, NOTPLAYER, true, false);
             }

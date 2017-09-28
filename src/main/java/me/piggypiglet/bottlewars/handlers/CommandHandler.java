@@ -9,8 +9,12 @@ import org.apache.commons.lang3.EnumUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import static me.piggypiglet.bottlewars.enums.Messages.*;
 
@@ -18,7 +22,7 @@ import static me.piggypiglet.bottlewars.enums.Messages.*;
 // Copyright (c) PiggyPiglet 2017
 // https://www.piggypiglet.me
 // ------------------------------
-public class CommandHandler implements CommandExecutor {
+public class CommandHandler implements CommandExecutor, TabCompleter {
     private ChatHandler chat;
 
     public CommandHandler() {
@@ -48,5 +52,26 @@ public class CommandHandler implements CommandExecutor {
             }
         }
         return true;
+    }
+    public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+        if (label.equalsIgnoreCase("bw")) {
+            if (args.length == 1) {
+                ArrayList<String> sub = new ArrayList<>();
+                if (args[0].equals("")) {
+                    for (Commands commd : Commands.values()) {
+                        sub.add(commd.name().toLowerCase());
+                    }
+                } else {
+                    for (Commands commd : Commands.values()) {
+                        if (commd.name().toLowerCase().startsWith(args[0])) {
+                            sub.add(commd.name().toLowerCase());
+                        }
+                    }
+                }
+                Collections.sort(sub);
+                return sub;
+            }
+        }
+        return null;
     }
 }

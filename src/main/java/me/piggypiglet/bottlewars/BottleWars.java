@@ -3,7 +3,6 @@ package me.piggypiglet.bottlewars;
 import me.piggypiglet.bottlewars.handlers.CommandHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
 import java.util.stream.Stream;
 
 // ------------------------------
@@ -21,6 +20,7 @@ public final class BottleWars extends JavaPlugin {
         instance = this;
 
         getCommand("bw").setExecutor(new CommandHandler());
+        getCommand("bw").setTabCompleter(new CommandHandler());
 
         new Config(getDataFolder().getPath(), "config.yml");
         new Config(getDataFolder().getPath(), "lang.yml");
