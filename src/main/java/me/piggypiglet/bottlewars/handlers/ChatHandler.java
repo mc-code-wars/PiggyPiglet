@@ -26,7 +26,7 @@ public class ChatHandler {
         String err = list ? err1.replace("[", "").replace("]", "").replace(", ", "\n") : err1;
         sender.sendMessage(cc(err));
     }
-    public String cc(String str) {
+    private String cc(String str) {
         return ChatColor.translateAlternateColorCodes('&', str);
     }
 }

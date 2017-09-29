@@ -3,12 +3,9 @@ package me.piggypiglet.bottlewars.commands;
 import me.piggypiglet.bottlewars.BottleWars;
 import me.piggypiglet.bottlewars.Config;
 import me.piggypiglet.bottlewars.handlers.ChatHandler;
-import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import static me.piggypiglet.bottlewars.enums.Messages.*;
 
@@ -17,7 +14,7 @@ import static me.piggypiglet.bottlewars.enums.Messages.*;
 // https://www.piggypiglet.me
 // ------------------------------
 public class CreateLobby {
-    public CreateLobby(CommandSender sender) {
+    public CreateLobby(CommandSender sender, String[] args) {
         BottleWars main = BottleWars.getInstance();
         ChatHandler chat = new ChatHandler();
         final FileConfiguration config = new Config(main.getDataFolder().getPath(), "config.yml").getConfig();

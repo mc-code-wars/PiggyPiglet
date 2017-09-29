@@ -17,7 +17,6 @@ public class Config {
         BottleWars main = BottleWars.getInstance();
         file = new File(path, fileName);
         if (!file.exists()) {
-
             file.getParentFile().mkdirs();
             main.saveResource(fileName, false);
         }
@@ -29,7 +28,6 @@ public class Config {
         }
         fileConfig = filesConfig;
     }
-
     public FileConfiguration getConfig() {
         return fileConfig;
     }
