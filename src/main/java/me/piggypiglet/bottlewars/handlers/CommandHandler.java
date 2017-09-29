@@ -4,6 +4,8 @@ import me.piggypiglet.bottlewars.commands.CreateLobby;
 import me.piggypiglet.bottlewars.commands.Debug;
 import me.piggypiglet.bottlewars.commands.Help;
 import me.piggypiglet.bottlewars.commands.Reload;
+import me.piggypiglet.bottlewars.enums.commands.Options;
+import me.piggypiglet.bottlewars.enums.commands.Subs;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,7 +26,7 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
     private ChatHandler chat;
 
     private void makeTab(String args, List<String> command, Enum[] values) {
-        for (something commd : something) {
+        for (Enum commd : values) {
             String lowerName = commd.name().toLowerCase();
             if (lowerName.startsWith(args)) {
                 command.add(lowerName);
@@ -38,7 +40,7 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (label.equalsIgnoreCase("bw")) {
-            if (args.length == 1 && Arrays.stream(Commands.Subs.values()).noneMatch((cmdd) -> cmdd.name().equalsIgnoreCase(args[0]))) {
+            if (args.length == 1 && Arrays.stream(Subs.values()).noneMatch((cmdd) -> cmdd.name().equalsIgnoreCase(args[0]))) {
                 chat.sendError(sender, UNKNOWNSUB, true, false);
             } else if (args.length == 0) {
                 new Help(sender);
@@ -62,56 +64,20 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
         return true;
     }
 
-//  public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
-//      if (label.equalsIgnoreCase("bw")) {
-//            if (args.length >= 1) {
-//                ArrayList<String> sub = new ArrayList<>();
-//                if (args[0].equals("")) {
-//                    for (Commands commd : Commands.values()) {
-//                        sub.add(commd.name().toLowerCase());
-//                    }
-//                } else {
-//                    for (Commands commd : Commands.values()) {
-//                        if (commd.name().toLowerCase().startsWith(args[0])) {
-//                            sub.add(commd.name().toLowerCase());
-//                        }
-//                    }
-//                }
-//                Collections.sort(sub);
-//                return sub;
-//            }
-//            List<String> comd = new ArrayList<>();
-//            switch (args.length) {
-//                case 1:
-//                    if (args[0].equals("")) {
-//                        for (Commands.Subs commd : Commands.Subs.values()) {
-//                            comd.add(commd.name().toLowerCase());
-//                        }
-//                    } else {
-//                        for (Commands.Subs commd : Commands.Subs.values()) {
-//                            if (commd.name().toLowerCase().startsWith(args[0])) {
-//                                comd.add(commd.name().toLowerCase());
-//                            }
-//                        }
-//                    }
-//                    break;
-//                case 2:
-//                    if (args[1].equals("")) {
-//                        for (Commands.Options commd : Commands.Options.values()) {
-//                            comd.add(commd.name().toLowerCase());
-//                        }
-//                    } else {
-//                        for (Commands.Options commd : Commands.Options.values()) {
-//                            if (commd.name().toLowerCase().startsWith(args[1])) {
-//                                comd.add(commd.name().toLowerCase());
-//                            }
-//                        }
-//                    }
-//                    break;
-//            }
-//            Collections.sort(comd);
-//            return comd;
-//        }
-//        return null;
-//    }
+  public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+      if (label.equalsIgnoreCase("bw")) {
+            List<String> command = new ArrayList<>();
+            switch (args.length) {
+                case 1:
+                    makeTab(args[0], command, Subs.values());
+                    break;
+                case 2:
+                    makeTab(args[1], command, Options.values());
+                    break;
+            }
+            Collections.sort(command);
+            return command;
+        }
+        return null;
+    }
 }
