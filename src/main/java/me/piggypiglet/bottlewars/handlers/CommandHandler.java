@@ -23,8 +23,8 @@ import static me.piggypiglet.bottlewars.enums.Messages.*;
 public class CommandHandler implements CommandExecutor, TabCompleter {
     private ChatHandler chat;
 
-    private void makeTab(String args, List<String> command, int value) {
-        for (v commd : ) {
+    private void makeTab(String args, List<String> command, Enum[] values) {
+        for (something commd : something) {
             String lowerName = commd.name().toLowerCase();
             if (lowerName.startsWith(args)) {
                 command.add(lowerName);
@@ -62,8 +62,8 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
         return true;
     }
 
-    public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
-        if (label.equalsIgnoreCase("bw")) {
+//  public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+//      if (label.equalsIgnoreCase("bw")) {
 //            if (args.length >= 1) {
 //                ArrayList<String> sub = new ArrayList<>();
 //                if (args[0].equals("")) {
@@ -80,38 +80,38 @@ public class CommandHandler implements CommandExecutor, TabCompleter {
 //                Collections.sort(sub);
 //                return sub;
 //            }
-            List<String> comd = new ArrayList<>();
-            switch (args.length) {
-                case 1:
-                    if (args[0].equals("")) {
-                        for (Commands.Subs commd : Commands.Subs.values()) {
-                            comd.add(commd.name().toLowerCase());
-                        }
-                    } else {
-                        for (Commands.Subs commd : Commands.Subs.values()) {
-                            if (commd.name().toLowerCase().startsWith(args[0])) {
-                                comd.add(commd.name().toLowerCase());
-                            }
-                        }
-                    }
-                    break;
-                case 2:
-                    if (args[1].equals("")) {
-                        for (Commands.Options commd : Commands.Options.values()) {
-                            comd.add(commd.name().toLowerCase());
-                        }
-                    } else {
-                        for (Commands.Options commd : Commands.Options.values()) {
-                            if (commd.name().toLowerCase().startsWith(args[1])) {
-                                comd.add(commd.name().toLowerCase());
-                            }
-                        }
-                    }
-                    break;
-            }
-            Collections.sort(comd);
-            return comd;
-        }
-        return null;
-    }
+//            List<String> comd = new ArrayList<>();
+//            switch (args.length) {
+//                case 1:
+//                    if (args[0].equals("")) {
+//                        for (Commands.Subs commd : Commands.Subs.values()) {
+//                            comd.add(commd.name().toLowerCase());
+//                        }
+//                    } else {
+//                        for (Commands.Subs commd : Commands.Subs.values()) {
+//                            if (commd.name().toLowerCase().startsWith(args[0])) {
+//                                comd.add(commd.name().toLowerCase());
+//                            }
+//                        }
+//                    }
+//                    break;
+//                case 2:
+//                    if (args[1].equals("")) {
+//                        for (Commands.Options commd : Commands.Options.values()) {
+//                            comd.add(commd.name().toLowerCase());
+//                        }
+//                    } else {
+//                        for (Commands.Options commd : Commands.Options.values()) {
+//                            if (commd.name().toLowerCase().startsWith(args[1])) {
+//                                comd.add(commd.name().toLowerCase());
+//                            }
+//                        }
+//                    }
+//                    break;
+//            }
+//            Collections.sort(comd);
+//            return comd;
+//        }
+//        return null;
+//    }
 }
