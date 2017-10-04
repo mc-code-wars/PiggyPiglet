@@ -21,8 +21,11 @@ public class CreateLobby {
         if (sender.hasPermission("bottlewars.admin") || sender.hasPermission("bottlewars.createlobby")) {
             if (sender instanceof Player) {
                 Player p = (Player) sender;
-
-                chat.send(sender, config.getString("lobbymsg", "&7You have received the lobby wand. Select an area by typing &b/bw createlobby pos1 &7and &b/bw createlobby pos2"), true, false);
+                if (args.length == 1 || args.length == 2) {
+                    chat.sendError(p, NOTENOUGHARGS, true, false);
+                } else if (args.length == 3) {
+                    if (args[01])
+                }
             } else {
                 chat.sendError(sender, NOTPLAYER, true, false);
             }

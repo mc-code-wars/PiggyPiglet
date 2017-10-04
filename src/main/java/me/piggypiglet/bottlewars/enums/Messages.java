@@ -8,4 +8,5 @@ public enum Messages {
     PREFIX,
     UNKNOWNSUB,
     NOTPLAYER,
+    NOTENOUGHARGS,
 }

@@ -24,7 +24,6 @@ import static me.piggypiglet.bottlewars.enums.Messages.*;
 // ------------------------------
 public class CommandHandler implements CommandExecutor, TabCompleter {
     private ChatHandler chat;
-
     private void makeTab(String args, List<String> command, Enum[] values) {
         for (Enum commd : values) {
             String lowerName = commd.name().toLowerCase();

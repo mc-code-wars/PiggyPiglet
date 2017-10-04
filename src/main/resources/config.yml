@@ -1,14 +1,2 @@
 # https://www.piggypiglet.me/bottlewars/docs
-select-item: STICK
-select-item-name: "&bLobby Maker"
 storage-method: mysql
-split-storage:
-  methods:
-mysql-host: 127.0.0.1
-mysql-port: 3306
-mysql-username: root
-mysql-password: 1234
-mysql-database: db
-mysql-table-prefix: bw-
-pool-size: 15
-sync-ticks: 3600

@@ -3,6 +3,6 @@ help:
 - "&b/bw &8- &7This menu"
 - "&b/bw help <command> &8- &7Information on a certain command"
 - "&b/bw reload &8- &7Reload the plugin"
-wandmsg: "&7You have received the lobby wand. Select an area by right clicking and left clicking."
+notenoughargs: "&7Not enough arguments!"
 unknownsub: "&7Unknown subcommand, please type &b/bw&7 or &b/bw help&7 to receive a command list."
 notplayer: "&7This command can only be executed by players!"
