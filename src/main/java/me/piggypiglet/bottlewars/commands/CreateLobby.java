@@ -24,7 +24,8 @@ public class CreateLobby {
                 if (args.length == 1 || args.length == 2) {
                     chat.sendError(p, NOTENOUGHARGS, true, false);
                 } else if (args.length == 3) {
-                    if (args[01])
+                    //Comenting out this line for compiler
+                    //if (args[01])
                 }
             } else {
                 chat.sendError(sender, NOTPLAYER, true, false);
